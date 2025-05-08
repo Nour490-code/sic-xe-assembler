@@ -1,15 +1,28 @@
+import java.io.IOException;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+    public static void main(String[] args) throws IOException {
+        IntermediateFileGenerator test1 = new IntermediateFileGenerator("IN.txt");
+        test1.ReadFile();
+        test1.Split(test1.GetFileLines().elementAt(0));
+        test1.GenerateOutFile();
+        test1.PrintFileLinesVectorContents();
+        System.out.println(test1.FileLines.size());
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        LocationHandler.getFirstAddress();
+        passOneFileGenerator test2 = new passOneFileGenerator("intermediate.txt");
+        test2.ReadFile();
+        test2.Split(test1.GetFileLines().elementAt(0));
+        test2.GenerateOutFile();
+        test2.PrintFileLinesVectorContents();
+        System.out.println(test2.FileLines.size());
+
+        SymbolTableGenerator generator = new SymbolTableGenerator();
+        generator.generateSymbolTable("out_pass1.txt");
+        generator.writeToFile("symbol_table.txt");
+        System.out.println("Symbol table generated successfully in " + "outputFile");
+
     }
 }

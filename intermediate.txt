@@ -1,0 +1,5 @@
+PROG1        START        1000   
+FIRST        STL          RETADR 
+ALPHA        LDB          TH     
+             LDA          ALPHA  
+             TIX          #LENGTH

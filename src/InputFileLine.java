@@ -1,4 +1,5 @@
-public class InputFileLien {
+public class InputFileLine {
+    String Location;
     String LineNumber ;
     String Delimeter = "      ";
     String Label;

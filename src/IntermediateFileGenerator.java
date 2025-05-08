@@ -6,13 +6,13 @@ import java.util.Vector;
 
 public class IntermediateFileGenerator {
     private static int _count ; //To count How many Files processed;
-    private String _InFileName = "In.txt" ;
-    private String _OutFileName = "Out.txt";
+    private String _InFileName = "IN.txt" ;
+    private String _OutFileName = "intermediate.txt";
     private File In = new File(_InFileName);
     private File Out = new File(_OutFileName);
 
 
-    Scanner input = new Scanner(In); //To Read From InFile
+    Scanner input = new Scanner(In); //Tintermediateo Read From InFile
     PrintWriter Output = new PrintWriter(_OutFileName); // To Write In OutputFile
     public Vector <String> FileLines = new Vector<>(); //To Manepulate File data
 
@@ -25,7 +25,7 @@ public class IntermediateFileGenerator {
     //Constructor
     public IntermediateFileGenerator(String FileName) throws FileNotFoundException {
         _count ++;
-       // _FileName = FileName;
+        // _FileName = FileName;
     }
 
     // Methods
@@ -48,9 +48,9 @@ public class IntermediateFileGenerator {
     }
 
     //Method To Split Each Part in the line to deal with it
-    public InputFileLien Split (String SicLine)
+    public InputFileLine Split (String SicLine)
     {
-        InputFileLien line = new InputFileLien();
+        InputFileLine line = new InputFileLine();
         line.LineNumber = SicLine.substring(0,3);
         line.Delimeter = SicLine.substring(3,9);
         line.Label = SicLine.substring(9,16);
@@ -68,9 +68,9 @@ public class IntermediateFileGenerator {
     }
 
     //Method to Remove Line number and comments , deal with InputFileLien Opject
-    public InputFileLien RemoveLineNumbersAndComment(int index)
+    public InputFileLine RemoveLineNumbersAndComment(int index)
     {
-        InputFileLien line = new InputFileLien();
+        InputFileLine line = new InputFileLine();
 
 
         line = Split(FileLines.elementAt(index));
@@ -81,14 +81,14 @@ public class IntermediateFileGenerator {
 
     }
     //To save the data in the Out.txt
-    public String ConvertFromInputFileLineToOutputString(InputFileLien line)
+    public String ConvertFromInputFileLineToOutputString(InputFileLine line)
     {
         return line.Label + line.Delimeter + line.menmonic + line.Delimeter + line.Operand ;
     }
     //This method Generates the output file
     public void GenerateOutFile()
     {
-        InputFileLien line = new InputFileLien();
+        InputFileLine line = new InputFileLine();
         String OutputLine ;
         for(int i = 0 ;i<FileLines.size();i++)
         {

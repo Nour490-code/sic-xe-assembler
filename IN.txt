@@ -1,5 +1,5 @@
 000      PROG1        START        1000         ; program start at address 1000
 005      FIRST        STL          RETADR       ; store return address
-010                   LDB          #LENGTH      ; load length into B register
+010      ALPHA        LDB     #LENGTH      ; load length into B register
 015                   LDA          ALPHA        ; load length into B register
 020                   TIX          #LENGTH      ; load length into B register
