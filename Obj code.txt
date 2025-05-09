@@ -1,0 +1,5 @@
+1000    SAMPLE  START   1000
+1000            LDA     #5        010005
+1003            ADD     ALPHA     0C100D
+1006    ALPHA   WORD    3         000003
+1009            END     1000

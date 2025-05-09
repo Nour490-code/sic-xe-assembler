@@ -24,5 +24,14 @@ public class Main {
         generator.writeToFile("symbol_table.txt");
         System.out.println("Symbol table generated successfully in " + "outputFile");
 
+        HTMERecordGenerator HTMERecordGenerator = new HTMERecordGenerator();
+        HTMERecordGenerator.generateHTMERecords("Obj code.txt", "HTME.txt");
+        System.out.println("HTME records generated successfully in " + "outputFile");
+
+        // Print the output to console as well
+        System.out.println("\nGenerated Records:");
+        System.out.println(HTMERecordGenerator.generateHeaderRecord());
+        HTMERecordGenerator.getTextRecords().forEach(System.out::println);
+        System.out.println(HTMERecordGenerator.generateEndRecord());
     }
 }
