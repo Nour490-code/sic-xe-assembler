@@ -1,5 +1,11 @@
 1000	PROG1   START   1000    
 1000	FIRST   STL     RETADR  
-1003	ALPHA   LDB     TH      
-1006	        LDA     ALPHA   
-1009	        TIX     #LENGTH 
+1003	ALPHA   LDB     TH
+1006	        +LDA     ALPHA
+1009	        TIX     #LENGTH
+100C            COMPR    A,S
+100E            TIO
+1012    BETA    LDA      FIRST,X
+1022    GAMA    LDB      #660
+12A5     ARP    LDX      @ALPHA
+1025     IPI    +LDX      #4096

@@ -1,37 +1,22 @@
-import java.io.IOException;
+import java.io.FileNotFoundException;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
-    public static void main(String[] args) throws IOException {
-        IntermediateFileGenerator test1 = new IntermediateFileGenerator("IN.txt");
-        test1.ReadFile();
-        test1.Split(test1.GetFileLines().elementAt(0));
-        test1.GenerateOutFile();
-        test1.PrintFileLinesVectorContents();
-        System.out.println(test1.FileLines.size());
+    public static void main(String[] args) throws FileNotFoundException {
+    IntermediateFileGenerator test1 = new IntermediateFileGenerator("In.txt");
+    //test1.ReadFile();
+    //test1.Split(test1.GetFileLines().elementAt(0));
+    test1.GenerateOutFile();
+    //test1.PrintFileLinesVectorContents();
+      //  System.out.println(test1.FileLines.size());
+    ObjectCodeGenerator test2 = new ObjectCodeGenerator("In.txt");
+    test2.ReadFile(test2.GetFileLines(),test2.GetScanner(),test2.GetInputFile());
 
-        LocationHandler.getFirstAddress();
-        passOneFileGenerator test2 = new passOneFileGenerator("intermediate.txt");
-        test2.ReadFile();
-        test2.Split(test1.GetFileLines().elementAt(0));
-        test2.GenerateOutFile();
-        test2.PrintFileLinesVectorContents();
-        System.out.println(test2.FileLines.size());
+        System.out.println(test2.CalculateTA("10AC","0033","1009"));
+        test2.ReadFromSymbolTableFile();
+        test2.GenerateObjectCode();
+       // test2.PrintVector();
+        test2.GenerateOutputFile();
+        test2.PrintVector();
 
-        SymbolTableGenerator generator = new SymbolTableGenerator();
-        generator.generateSymbolTable("out_pass1.txt");
-        generator.writeToFile("symbol_table.txt");
-        System.out.println("Symbol table generated successfully in " + "outputFile");
-
-        HTMERecordGenerator HTMERecordGenerator = new HTMERecordGenerator();
-        HTMERecordGenerator.generateHTMERecords("Obj code.txt", "HTME.txt");
-        System.out.println("HTME records generated successfully in " + "outputFile");
-
-        // Print the output to console as well
-        System.out.println("\nGenerated Records:");
-        System.out.println(HTMERecordGenerator.generateHeaderRecord());
-        HTMERecordGenerator.getTextRecords().forEach(System.out::println);
-        System.out.println(HTMERecordGenerator.generateEndRecord());
     }
 }

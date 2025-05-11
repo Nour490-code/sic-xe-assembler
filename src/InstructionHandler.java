@@ -44,8 +44,8 @@ public class InstructionHandler {
         boolean isExtended = mnemonic.startsWith("+");
         String cleanMnemonic = (isExtended ? mnemonic.substring(1) : mnemonic).trim().toUpperCase();
 
-        System.out.println("Looking up mnemonic: " + cleanMnemonic);
-        System.out.println("Opcode map contains: " + opcodeFormats.keySet());
+        //System.out.println("Looking up mnemonic: " + cleanMnemonic);
+        //System.out.println("Opcode map contains: " + opcodeFormats.keySet());
 
         if (!opcodeFormats.containsKey(cleanMnemonic)) {
             throw new IllegalArgumentException("Unknown mnemonic: " + mnemonic);

@@ -1,5 +1,8 @@
-===============
-SYMBOL	ADDRESS
-===============
+================
+=SYMBOL	ADDRESS=
+================
 FIRST	1000
 ALPHA	1003
+RETADR  1009
+TH      100C
+LENGTH  101D
